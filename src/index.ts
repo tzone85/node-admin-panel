@@ -2,6 +2,7 @@ import express, {Request, Response} from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 // import adminRoutes from './routes/admin';
+import {routes} from './routes';
 
 const app = express();
 
@@ -12,10 +13,8 @@ app.use(cors({
     // allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello World!');
-});
+routes(app);
 
 app.listen(8000, () => {
-  console.log('Server is running on port 8000. Listenning');
+  console.log('Server is running on port 8000. Listening');
 });
